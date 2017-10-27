@@ -1,4 +1,52 @@
-                                 Apache License
+// This file allows us to seed our application with data
+// simply run: `node seed.js` from the root of this project folder.
+
+const db = require('./models');
+
+var house_list = [
+  {
+    title: 'Curry Up Now',
+    description: ['/images/food_truck/curryupnow.png'],
+    bedroom: `/images/food_truck/curryupnowlogo.jpeg`,
+    bathroom: `Think tikka masala burritos, deconstructed samosas and sexy fries. We take traditional Indian flavors and present them in a friendly, recognizable way. Our obsession is amazing tasting food, but we’re just as passionate about making sure our guests have an incredible experience the moment they walk through our doors or step in line at our food trucks.`,
+    phoneNumber: '628-777-2276',
+    address: `225 Bush Street, San Francisco, CA 94104`,
+    lat: 37.790841,
+    long: -122.401280,
+    review: '',
+    typesOfFood:['Indian'],
+    dollarValue:'1',
+    markedForDeletion: false,
+  },
+  {
+    title: 'El Norteno Taco Truck',
+    description: ['/images/food_truck/elnortenotaco.png'],
+    bedroom: '/images/food_truck/elnlogo.png',
+    bathroom: `Welcome to El Norteno Taco Truck!`,
+    phoneNumber: '415-756-1220',
+    address: `801 Bryant St, San Francisco, CA 94103`,
+    lat: 37.775491,
+    long: -122.402425,
+    review: '',
+    typesOfFood:['Mexican'],
+    dollarValue:'2',
+    markedForDeletion: false,
+  },
+  {
+    title: `Senor Sisig`,
+    description: ['/images/food_truck/senorsisig.jpg'],
+    bedroom: '/images/food_truck/senorsisiglogo.png',
+    bathroom: `Señor Sisig is a Filipino Fusion Food Truck located in the San Francisco Bay Area.`,
+    phoneNumber: '1-855-SISIG-55',
+    address: `300 Pine, San Francisco, CA 94104`,
+    lat: 37.792268,
+    long: -122.401255,
+    review: '',
+    typesOfFood:['Filipino'],
+    dollarValue:'3',
+    markedForDeletion: false,
+  },
+];                                 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 

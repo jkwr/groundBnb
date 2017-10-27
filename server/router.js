@@ -1,6 +1,8 @@
 const AuthenticationController = require('./controllers/authentication');
 const UserController = require('./controllers/user');
 const ChatController = require('./controllers/chat');
+const HouseController = require('./controllers/house');
+const ReviewController = require('./controllers/review');
 const CommunicationController = require('./controllers/communication');
 const StripeController = require('./controllers/stripe');
 const express = require('express');
@@ -9,7 +11,7 @@ const ROLE_MEMBER = require('./constants').ROLE_MEMBER;
 const ROLE_CLIENT = require('./constants').ROLE_CLIENT;
 const ROLE_OWNER = require('./constants').ROLE_OWNER;
 const ROLE_ADMIN = require('./constants').ROLE_ADMIN;
-
+const cuid = require('cuid');
 const passportService = require('./config/passport');
 
 // Middleware to require login/auth
@@ -24,6 +26,9 @@ module.exports = function (app) {
     chatRoutes = express.Router(),
     payRoutes = express.Router(),
     communicationRoutes = express.Router();
+    houseRoutes = express.Router();
+    reviewRoutes = express.Router();
+
 
   //= ========================
   // Auth Routes
@@ -115,4 +120,45 @@ module.exports = function (app) {
 
   // Set url for API group routes
   app.use('/api', apiRoutes);
+
+  //= ========================
+  // House Routes
+  //= ========================
+  
+  // index
+  apiRoutes.use('/houses', houseRoutes);
+  // get all houses 
+  houseRoutes.get('/', HouseController.getHouses)
+  // get house by id 
+  houseRoutes.get('/:cuid', HouseController.getHouse)
+  houseRoutes.get('/:cuid/reviews/', ReviewController.reviewsForOneHouse)
+  // Post a new house 
+  houseRoutes.post('/', HouseController.addHouse)
+  // Delete a post by id 
+  houseRoutes.delete('/:cuid', HouseController.deleteHouse)
+  //= ========================
+  // Review Routes
+  //= ========================
+  //apiRoutes.use('/houses/:cuid/reviews', reviewRoutes)
+  // Get specific review by Id
+  //reviewRoutes.get('/', ReviewController.reviewsForOneHouse)
+  // Create a review
+  //reviewRoutes.post('/', ReviewController.createReview)
+  // Edit a Review
+  //reviewRoutes.put('/:reviewId', ReviewController.editReview)
+  // Delete a Review
+  //reviewRoutes.delete('/:id', ReviewController.deleteReview)
+
+
+
+
+//   // create a review for a truck
+// app.post('/api/:truckId/reviews', controllers.review.createReview)
+
+// // edit a review for a truck
+// app.put('/api/:truckId/reviews', controllers.review.editReview)
+
+// // delete a review for a truck
+// app.delete('/api/:truckId/reviews', controllers.review.deleteReview)
+
 };

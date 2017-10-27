@@ -47,3 +47,6 @@ router(app);
 
 // necessary for testing
 module.exports = server;
+
+
+const db = require('./models');
