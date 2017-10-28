@@ -1,0 +1,26 @@
+{
+  "name": "groundbnb",
+  "version": "1.0.0",
+  "description": "airBnbClone ",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^3.5.0",
+    "redux": "^3.7.2",
+    "redux-form": "^7.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "concurrently \"cd client && npm start\" \"cd server && npm run dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkwr/groundBnb.git"
+  },
+  "author": "Jevell Rollins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkwr/groundBnb/issues"
+  },
+  "homepage": "https://github.com/jkwr/groundBnb#readme"
+}

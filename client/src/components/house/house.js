@@ -1,9 +1,66 @@
-import React, { PropTypes } from 'react';
+import React, {Component} from 'react'
+
+class House extends Component {
+  render(){
+    return(
+      <p data-houses-index={this.props.house.id}>
+        <span>{this.props.house.title}</span>
+      </p>
+    )
+  }
+}
+
+export default House
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import HouseModel from '../models/House'
 import styles from './housePost.css';
 
-function HousePost(props) {
+function House(props) {
 	 render(){
     HouseModel.all().then( (res) => {
       console.log(res);
@@ -12,6 +69,9 @@ function HousePost(props) {
   return (
     <div className={styles['single-post']}>
       <h3 className={styles['post-title']}>
+      <p data-todos-index={this.props.house.id}>
+        <span>{this.props.house.body}</span>
+      </p>
         <Link to={`/houses/${this.props.house.slug}-${this.props.house.cuid}`} >
           {props.post.title}
         </Link>
@@ -21,7 +81,7 @@ function HousePost(props) {
   );
 }
 
-HousePost().propTypes = {
+House.propTypes = {
   post: PropTypes.shape({
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -38,4 +98,6 @@ HousePost().propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-export default HousePost();
+export default House;
+*/
+

@@ -12,7 +12,7 @@ const sanitizeHtml = require('sanitize-html');
 
 
 exports.getHouses = function (req, res) {
-  console.log(req)
+  console.log("houses being gotten")
   House.find().sort('-dateAdded').exec((err, houses) => {
     if (err) {
       res.status(500).send(err);

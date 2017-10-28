@@ -34,9 +34,14 @@ import AdminDashboard from './components/admin/dashboard';
 // Import higher order components
 import RequireAuth from './components/auth/require_auth';
 
+import Houses from "./components/house/houses";
+
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
+    <Route path='houses' component={Houses}/>
+
+
     <Route path="contact-us" component={ContactPage} />
     <Route path="component-samples" component={RequireAuth(ComponentSamplesPage)} />
     <Route path="register" component={Register} />
