@@ -18,7 +18,7 @@ exports.getHouses = function (req, res) {
       res.status(500).send(err);
     }
     
-    res.json({ houses });
+    res.json({houses});
   });
 }
 

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class HouseModel {
     static all() {
-        let request = axios.get("https://localhost:8080/api/houses")
+        let request = axios.get("http://localhost:8000/api/houses")
         console.log(request)
         return request
     }
