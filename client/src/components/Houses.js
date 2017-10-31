@@ -7,12 +7,21 @@ class Houses extends Component {
       return (
         <House
           key={house._id}
-          house={house}/>
+          house={house}
+
+          editingHouseId={this.props.editingHouseId}
+          onEditHouse={this.props.onEditHouse}
+          onDeleteHouse={this.props.onDeleteHouse}
+          onUpdateHouse={this.props.onUpdateHouse}
+
+
+
+          />
       )
     })
     return(
       <div className="houses">
-        {houses} console.log("yes")
+        {houses}
       </div>
     )
   }

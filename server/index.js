@@ -7,7 +7,7 @@ const express = require('express'),
   mongoose = require('mongoose'),
   socketEvents = require('./socketEvents'),
   config = require('./config/main');
-
+const fileUpload = require('express-fileupload');
 // Database Setup
 mongoose.createConnection(config.database);
 
@@ -47,6 +47,27 @@ router(app);
 
 // necessary for testing
 module.exports = server;
+
+
+/**********
+* ROUTES *
+**********/
+
+// Serve static files from the `/public` directory:
+// i.e. `/images`, `/scripts`, `/styles`
+app.use(express.static('public'));
+
+// This is used for uploading a file
+app.use(fileUpload());
+
+
+
+
+
+
+
+
+
 
 
 const db = require('./models');

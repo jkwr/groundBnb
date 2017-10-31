@@ -29,24 +29,9 @@ exports.getHouses = function (req, res) {
  * @returns void
  */
 exports.addHouse = function (req, res) {
-  if (!req.body.house.name || !req.body.house.title || !req.body.house.content) {
-    res.status(403).end();
-  }
-
-  const newHouse = new House(req.body.house);
-
-  // Let's sanitize inputs
-  newHouse.title = sanitizeHtml(newHouse.title);
-  newHouse.name = sanitizeHtml(newHouse.name);
-  newHouse.content = sanitizeHtml(newHouse.content);
-
-  newHouse.slug = slug(newHouse.title.toLowerCase(), { lowercase: true });
-  newHouse.cuid = cuid();
-  newHouse.save((err, saved) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ house: saved });
+  House.create(req.body, function(err, saved){
+    if (err) res.send(err);
+    else res.json(saved);
   });
 }
 

@@ -6,20 +6,21 @@ class HouseModel {
         console.log(request)
         return request
     }
-    // static create(house) {
-    //     let request = axios.post("https://localhost:8080/houses", house)
-    //     return request
-    // }
-    // static delete(house) {
-    //     let request = axios.delete(`https://localhost:8080/houses`)
-    //     return request
-    // }
-    // static update(houseId, houseBody) {
-    //     let request = axios.put(`localhost:8080/houses/:cuid`, {
-    //         body: houseBody
-    //     })
-    //     return request
-    // }
+    static create(house) {
+        console.log(house)
+        let request = axios.post("http://localhost:8000/api/houses", house)
+        return request
+    }
+    static delete(house) {
+        let request = axios.delete(`http://localhost:8000/houses`)
+        return request
+    }
+    static update(houseId, houseBody) {
+        let request = axios.put(`http://localhost:8000/houses/:cuid`, {
+            body: houseBody
+        })
+        return request
+    }
 }
 
 export default HouseModel

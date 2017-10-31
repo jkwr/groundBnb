@@ -14,8 +14,9 @@ class HomePage extends Component {
             <h1>Hello World</h1>
           
           <Map 
-            containerElement={<div style={{ height: `100px` }} />}
-            mapElement={<div style={{ height: `100px` }} />} />
+            center= {{lat:37.7576793, lng: -122.5076404}}
+            containerElement={<div style={{ height: `300px` }} />}
+            mapElement={<div style={{ height: `500px` }} />} />
         </div>
       </Router>
     );
