@@ -3,21 +3,23 @@ const mongoose = require('mongoose'),
 
 
 const HouseSchema = new Schema({
-  title: { type: 'String', required: true },
-  photos: { type: 'String', required: true },
-  bedrooms: { type: 'Number', required: true },
-  bathrooms: { type: 'Number', required: true },
-  user_id: { type: 'String', required: false },
-  address: { type: 'String', required: true },
-  description: { type: 'String', required: false },
-  slug: { type: 'String', required: false },
-  cuid: { type: 'String', required: false },
+  title: String,
+  photos: String ,
+  bedrooms: Number,
+  bathrooms: Number,
+  lat: Number,
+  lng: Number,
+  user_id: String ,
+  address: String,
+  description: String ,
+  slug: String ,
+  cuid: String ,
   markedForDeletion: {
     type: Boolean,
     default: false
   },
 
-  // dateAdded: { type: 'Date', default: Date.now, required: true },
+  // dateAdded: { type: 'Date', default: Date.now},
 });
 
 

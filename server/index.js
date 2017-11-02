@@ -7,9 +7,9 @@ const express = require('express'),
   mongoose = require('mongoose'),
   socketEvents = require('./socketEvents'),
   config = require('./config/main');
-
+const fileUpload = require('express-fileupload');
 // Database Setup
-mongoose.connect(config.database);
+mongoose.createConnection(config.database);
 
 // Start the server
 let server;
@@ -35,7 +35,7 @@ app.use(logger('dev')); // Log requests to API using morgan
 
 // Enable CORS from client-side
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -47,6 +47,27 @@ router(app);
 
 // necessary for testing
 module.exports = server;
+
+
+/**********
+* ROUTES *
+**********/
+
+// Serve static files from the `/public` directory:
+// i.e. `/images`, `/scripts`, `/styles`
+app.use(express.static('public'));
+
+// This is used for uploading a file
+app.use(fileUpload());
+
+
+
+
+
+
+
+
+
 
 
 const db = require('./models');

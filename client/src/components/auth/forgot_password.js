@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { getForgotPasswordToken } from '../../actions/auth';
+import PropTypes from 'prop-types';
 
 const form = reduxForm({
   form: 'forgotPassword',
 });
 
 class ForgotPassword extends Component {
-  static contextTypes = {
-    router: React.PropTypes.object,
-  }
+  // static contextTypes = {
+  //   router: React.PropTypes.object,
+  // }
 
   componentWillMount() {
     if (this.props.authenticated) {

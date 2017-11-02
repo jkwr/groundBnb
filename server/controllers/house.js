@@ -12,13 +12,13 @@ const sanitizeHtml = require('sanitize-html');
 
 
 exports.getHouses = function (req, res) {
-  console.log(req)
+  console.log("houses being gotten")
   House.find().sort('-dateAdded').exec((err, houses) => {
     if (err) {
       res.status(500).send(err);
     }
     
-    res.json({ houses });
+    res.json({houses});
   });
 }
 
@@ -29,24 +29,9 @@ exports.getHouses = function (req, res) {
  * @returns void
  */
 exports.addHouse = function (req, res) {
-  if (!req.body.house.name || !req.body.house.title || !req.body.house.content) {
-    res.status(403).end();
-  }
-
-  const newHouse = new House(req.body.house);
-
-  // Let's sanitize inputs
-  newHouse.title = sanitizeHtml(newHouse.title);
-  newHouse.name = sanitizeHtml(newHouse.name);
-  newHouse.content = sanitizeHtml(newHouse.content);
-
-  newHouse.slug = slug(newHouse.title.toLowerCase(), { lowercase: true });
-  newHouse.cuid = cuid();
-  newHouse.save((err, saved) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ house: saved });
+  House.create(req.body, function(err, saved){
+    if (err) res.send(err);
+    else res.json(saved);
   });
 }
 
@@ -57,11 +42,12 @@ exports.addHouse = function (req, res) {
  * @returns void
  */
 exports.getHouse = function (req, res) {
-  House.findOne({ cuid: req.params.cuid }).exec((err, house) => {
+  House.findById(req.params.cuid).exec((err, sent) => {
+    console.log(req.params.cuid)
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ house });
+    res.json(sent);
   });
 }
 

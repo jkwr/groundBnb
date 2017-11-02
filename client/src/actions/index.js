@@ -2,8 +2,8 @@ import axios from 'axios';
 import cookie from 'react-cookie';
 import { logoutUser } from './auth';
 import { STATIC_ERROR, FETCH_USER } from './types';
-export const API_URL = 'http://localhost:3000/api';
-export const CLIENT_ROOT_URL = 'http://localhost:8080';
+export const API_URL = 'http://localhost:8000/api';
+export const CLIENT_ROOT_URL = 'http://localhost:3000';
 
 //= ===============================
 // Utility actions
@@ -129,17 +129,17 @@ export function deleteData(action, errorType, isAuthReq, url, dispatch) {
 //= ===============================
 // Static Page actions
 //= ===============================
-export function sendContactForm({ name, emailAddress, message }) {
-  return function (dispatch) {
-    axios.post(`${API_URL}/communication/contact`, { name, emailAddress, message })
-    .then((response) => {
-      dispatch({
-        type: SEND_CONTACT_FORM,
-        payload: response.data.message,
-      });
-    })
-    .catch((error) => {
-      errorHandler(dispatch, error.response, STATIC_ERROR);
-    });
-  };
-}
+// export function sendContactForm({ name, emailAddress, message }) {
+//   return function (dispatch) {
+//     axios.post(`${API_URL}/communication/contact`, { name, emailAddress, message })
+//     .then((response) => {
+//       dispatch({
+//         type: SEND_CONTACT_FORM,
+//         payload: response.data.message,
+//       });
+//     })
+//     .catch((error) => {
+//       errorHandler(dispatch, error.response, STATIC_ERROR);
+//     });
+//   };
+// }
