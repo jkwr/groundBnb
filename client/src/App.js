@@ -3,6 +3,7 @@ import Header from './components/Header'
 import NavbarHeader from './components/template/NavbarHeader';
 import Map from './components/template/Map';
 import HousesContainer from './containers/HousesContainer'
+import HouseContainer from './containers/HouseContainer'
 import HomePage from './components/HomePage'
 
 
@@ -26,7 +27,7 @@ class App extends Component {
          
           <Route exact path="/" component={ HomePage } />
           <Route exact path="/houses" component={ HousesContainer } />
-
+          <Route exact path="/houses/:id" component={ HouseContainer } />
     
         </div>
       </Router>

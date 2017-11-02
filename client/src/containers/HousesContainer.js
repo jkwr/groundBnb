@@ -70,7 +70,7 @@ editHouse(house) {
 
     return (
       <div className='housesContainer'>
-        <h2>This is the houses container</h2>
+       
         <Houses
           houses={this.state.houses}
           editingHouseId={this.state.editingHouseId}

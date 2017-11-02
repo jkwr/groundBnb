@@ -1,0 +1,25 @@
+.AboutBox {
+	background-color: light-gray;
+	width: 611px;
+	height: 1000px;
+
+}
+
+.Title{
+	font-size: 50px;
+	font-family: 'Kanit', sans-serif;
+
+}
+.Description{
+	font-family: 'Exo', sans-serif;
+	margin-left: 5px;
+}
+.Bathrooms  {
+	padding-right: 20px;
+}
+.Bedrooms  {
+	padding-right: 20px;
+}
+.Guest  {
+	padding-right: 20px;
+}

@@ -5,6 +5,7 @@ import {Link} from 'react-router'
 import HousesContainer from "../../containers/HousesContainer"
 import HouseModel from '../../models/House'
 import House from '../House'
+import "./Map.css";
 
 class Map extends Component{
  constructor(props) {
@@ -48,9 +49,15 @@ class Map extends Component{
     })
   }
 
+
+
+
+
+
+
   render(){
   	const markers = this.props.markers || []
-       let houses = this.state.houses.map( (house) => {
+    const houses = this.state.houses.map( (house) => {
       return (
         <Marker
          key={house._id}
@@ -59,7 +66,10 @@ class Map extends Component{
     })
 
     return (
-    
+
+
+
+<div>
     	 <GoogleMap
       ref= {this.mapLoaded.bind(this)}
       onDragEnd= { this.mapMoved.bind(this)}
@@ -68,8 +78,33 @@ class Map extends Component{
 		  defaultCenter={this.props.center}>  
 		  {/*markers.isMarkerShown && */  }
       {houses}
-		  </GoogleMap> 
+		  </GoogleMap> */
 			
+    <div className="container">
+      <form className="form-inline">
+        <label className="sr-only" htmlFor="address">Address</label>
+        <input type="text" className="form-control input-lg" id="address" placeholder="London"  required />
+         <button type="submit" className="btn btn-default btn-lg">
+         <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </form>
+        <div className="row">
+          <div className="col-sm-12">
+            <p className="bg-info">London, United Kingdom</p>
+            <div className="map"></div>
+           </div>
+        </div>
+
+    </div>  
+
+    
+
+
+
+
+
+
+      </div>
     )
   }
 }

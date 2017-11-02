@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Icon, NavItem, Navbar, Row, Input} from 'react-materialize'
+import {Button, Icon, NavItem, Navbar, Row, Input, Modal} from 'react-materialize'
 
 class CreatHouseForm extends Component {
   constructor(){
@@ -50,11 +50,12 @@ class CreatHouseForm extends Component {
         <button type='submit'>Create House!</button>
         </form>
       </Row>
+      
 
 
 
 
-
+   
       </div>
     )
   }

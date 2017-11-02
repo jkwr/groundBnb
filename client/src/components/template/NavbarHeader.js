@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Button, Icon, NavItem, Navbar} from 'react-materialize'
+import "./NavbarHeader.css";
 
 class NavbarHeader extends Component {
   renderLinks() {
@@ -36,11 +37,28 @@ class NavbarHeader extends Component {
 	
 render() {
 return (
-<Navbar brand='logo' left>
+  <div> 
+<Navbar fixed={true} brand={<img className="hlogo"
+ src="https://image.ibb.co/eMwvsb/gBnbLogo.png"/>} right>
+
 	{this.renderLinks()}
-	<NavItem href='/houses'>Houses</NavItem>
+	<NavItem href='/'>Trips</NavItem>
+  <NavItem href='/'>Become a Host</NavItem>
+  <NavItem href='/'>Messages</NavItem>
+  <NavItem href='/'>Help</NavItem>
 
 </Navbar>
+<Navbar fixed={true} >
+
+
+ <li key={1}> <Link to="/">For You</Link></li>
+   <NavItem href='/houses'>Homes</NavItem>
+ <li key={3}> <Link to="/">Experiances</Link></li>
+ <li key={4}> <Link to="/houses">Resturants</Link></li>
+
+  </Navbar>
+
+</div>
 		)
 	}
 }

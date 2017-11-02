@@ -16,9 +16,14 @@ class HouseModel {
         return request
     }
     static update(houseId, houseBody) {
-        let request = axios.put(`http://localhost:8000/houses/:cuid`, {
+        let request = axios.put(`http://localhost:8000/api/houses/:cuid`, {
             body: houseBody
         })
+        return request
+    }
+     static show(houseId) {
+        console.log(houseId)
+        let request = axios.get(`http://localhost:8000/api/houses/`+ houseId)
         return request
     }
 }

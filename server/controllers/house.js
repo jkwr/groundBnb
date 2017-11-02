@@ -42,11 +42,12 @@ exports.addHouse = function (req, res) {
  * @returns void
  */
 exports.getHouse = function (req, res) {
-  House.findOne({ cuid: req.params.cuid }).exec((err, house) => {
+  House.findById(req.params.cuid).exec((err, sent) => {
+    console.log(req.params.cuid)
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ house });
+    res.json(sent);
   });
 }
 
