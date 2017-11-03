@@ -11,12 +11,12 @@ class HouseModel {
         let request = axios.post("http://localhost:8000/api/houses", house)
         return request
     }
-    static delete(house) {
-        let request = axios.delete(`http://localhost:8000/houses`)
+    static delete(houseId) {
+        let request = axios.delete('http://localhost:8000/api/houses/' +houseId)
         return request
     }
     static update(houseId, houseBody) {
-        let request = axios.put(`http://localhost:8000/api/houses/:cuid`, {
+        let request = axios.put('http://localhost:8000/api/houses/:cuid'+ houseId,  {
             body: houseBody
         })
         return request

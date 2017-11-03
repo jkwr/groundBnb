@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import {Button, Icon, NavItem, Navbar} from 'react-materialize'
+import { NavItem, Navbar} from 'react-materialize'
 import "./NavbarHeader.css";
 
 class NavbarHeader extends Component {
@@ -53,8 +53,8 @@ return (
 
  <li key={1}> <Link to="/">For You</Link></li>
    <NavItem href='/houses'>Homes</NavItem>
- <li key={3}> <Link to="/">Experiances</Link></li>
- <li key={4}> <Link to="/houses">Resturants</Link></li>
+ <li key={3}> <Link to="/">Experiences</Link></li>
+ <li key={4}> <Link to="/">Resturants</Link></li>
 
   </Navbar>
 

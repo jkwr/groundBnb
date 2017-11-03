@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Button, Icon, NavItem, Navbar, Row, Input, Modal} from 'react-materialize'
-
+import {Button, Icon, NavItem, Navbar, Row, Input, Modal, Col} from 'react-materialize'
+import './CreateHouseForm.css'
 class CreatHouseForm extends Component {
   constructor(){
     super()
@@ -20,7 +20,7 @@ class CreatHouseForm extends Component {
 
   onFormSubmit(event){
     event.preventDefault()
-    let house = this.event
+    
     console.log("this is event ", event.target.value)
     this.props.createHouse(this.state)
     this.setState({
@@ -36,18 +36,24 @@ class CreatHouseForm extends Component {
 
   render(){
     return (
-      <div className='createForm houseForm'>
-        <h2>Create House Here!</h2>
+      <div className='CreateForm'>
+        
       <Row>
         <form onSubmit={event => this.onFormSubmit(event)}>
-        <input onChange={ e => { this.updateField(e, 'title') } } type="text" placeholder="Title"/>
-        <input onChange={ e => { this.updateField(e, 'photos') } } type="text" placeholder="Photos"/>
-        <input onChange={ e => { this.updateField(e, 'bed') } } type="text" placeholder="Bed"/>
-        <input onChange={ e => { this.updateField(e, 'bath') } } type="text" placeholder="bath"/>
-        <input onChange={ e => { this.updateField(e, 'address') } } type="text" placeholder="address"/>
-        <input onChange={ e => { this.updateField(e, 'description') } } type="text" placeholder="description"/>
 
-        <button type='submit'>Create House!</button>
+          <Col s={3} className="Inputs">
+           <h4>Add House!</h4>
+            <input onChange={ e => { this.updateField(e, 'title') } } type="text" placeholder="Title"/>
+            <input onChange={ e => { this.updateField(e, 'photos') } } type="text" placeholder="Photos"/>       
+            <input onChange={ e => { this.updateField(e, 'bedrooms') } } type="number" placeholder="Bed"/>
+            <input onChange={ e => { this.updateField(e, 'bathrooms') } } type="number" placeholder="bath"/>
+            <input onChange={ e => { this.updateField(e, 'address') } } type="text" placeholder="address"/>
+            <input onChange={ e => { this.updateField(e, 'description') } } type="text" placeholder="description"/>
+            <Button type='submit'>Create House!</Button>
+          </Col>
+     
+
+        
         </form>
       </Row>
       

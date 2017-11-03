@@ -58,13 +58,14 @@ exports.getHouse = function (req, res) {
  * @returns void
  */
 exports.deleteHouse = function (req, res) {
-  House.findOne({ cuid: req.params.cuid }).exec((err, house) => {
+  console.log('We are here!!', req.params)
+  House.findByIdAndRemove(req.params.cuid).exec((err, house) => {
     if (err) {
       res.status(500).send(err);
     }
-
-    house.remove(() => {
-      res.status(200).end();
-    });
+    res.json(house);
   });
 }
+
+exports.edit
+

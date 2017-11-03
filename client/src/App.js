@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './components/Header'
+
 import NavbarHeader from './components/template/NavbarHeader';
-import Map from './components/template/Map';
+import Footer from './components/template/Footer';
 import HousesContainer from './containers/HousesContainer'
 import HouseContainer from './containers/HouseContainer'
 import HomePage from './components/HomePage'
@@ -16,7 +16,7 @@ import HomePage from './components/HomePage'
 // import RequireAuth from './components/auth/require_auth';
 
 
-import { BrowserRouter as Router,Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router,Route} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -28,7 +28,7 @@ class App extends Component {
           <Route exact path="/" component={ HomePage } />
           <Route exact path="/houses" component={ HousesContainer } />
           <Route exact path="/houses/:id" component={ HouseContainer } />
-    
+          <Footer />
         </div>
       </Router>
     );

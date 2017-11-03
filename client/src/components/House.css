@@ -1,0 +1,12 @@
+.btn {
+	background-color: white;
+
+}
+
+.btn:hover {
+background-color: black;
+color: white;
+}
+.col .s6 {
+	text-align: center;
+}

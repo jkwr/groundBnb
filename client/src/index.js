@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import routes from './config/routes.js'
+
+
 import { Provider } from 'react-redux';
 import reducers from './reducers/index';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
-import { CookiesProvider, withCookies, Cookies, cookie } from 'react-cookie'
+import { cookie } from 'react-cookie'
 import ReactGA from 'react-ga';
 import { AUTH_USER } from './actions/types';
 
@@ -35,10 +35,3 @@ ReactDOM.render(
 	<App/>
 </Provider>
 , document.getElementById('root'));
-// registerServiceWorker();
-
-
-//  ReactDOM.render((
-// 	<Router routes/>
-// 	), document.getElementById('root'));
-// registerServiceWorker();

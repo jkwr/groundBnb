@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Header from './Header'
-import NavbarHeader from './template/NavbarHeader';
-import Map from './template/Map';
+
 import {Carousel} from 'react-materialize'
 import "./HomePage.css";
 
@@ -14,9 +12,9 @@ class HomePage extends Component {
         <div className="HomePage">
             
             <Carousel
-						fixedItem={<button className='btn white'>LEARN MORE</button>}
+						fixedItem={<button className='btn white'>HOW IT WORKS</button>}
 						options={{ fullWidth: true }}
-						images={'https://image.ibb.co/fTMofw/welcome.jpg'}
+						images={'https://image.ibb.co/jikyVw/welcome_Page.jpg'}
 						/>
         </div>
       </Router>

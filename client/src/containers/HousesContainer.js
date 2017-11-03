@@ -36,8 +36,10 @@ createHouse(house) {
   })
 }
 deleteHouse(house) {
+    console.log('this is the house we are deleting', house)
     HouseModel.delete(house).then((res) => {
         let houses = this.state.houses.filter(function(house) {
+          console.log('this is res.data', res.data)
             return house._id !== res.data._id
         });
         this.setState({houses})
@@ -57,14 +59,6 @@ updateHouse(houseBody) {
 editHouse(house) {
     this.setState({editingHouseId: house._id})
 }
-
-
-
-
-
-
-
-
 
   render(){
 

@@ -1,5 +1,6 @@
+/*global google*/
 import React, {Component} from 'react'
-import {withGoogleMap, GoogleMap, Marker}  from "react-google-maps";
+import {withGoogleMap, GoogleMap, Marker, GoogleMapLoader, InfoWindow}  from "react-google-maps";
 import {Link} from 'react-router'
 // AIzaSyDz6s2PWu2EXzXVwrf9zSWyM8wVIWG8vbo
 import HousesContainer from "../../containers/HousesContainer"
@@ -14,9 +15,7 @@ class Map extends Component{
      map: null, 
      houses:[]
    }
- }
-
-  
+ } 
   componentDidMount(){
     this.fetchData()
   }
@@ -33,8 +32,6 @@ class Map extends Component{
     })
   }
 
-
-
   mapMoved (map) {
     console.log("MapMoved:" + JSON.stringify(this.state.map.getCenter()))
   }
@@ -48,26 +45,27 @@ class Map extends Component{
       map:map 
     })
   }
-
-
-
-
-
-
-
   render(){
   	const markers = this.props.markers || []
     const houses = this.state.houses.map( (house) => {
+
+
       return (
+        <div>
         <Marker
          key={house._id}
-         position= {{lat: house.lat, lng: house.lng}}/>
+         position= {{lat: house.lat, lng: house.lng}}
+         icon={{
+          url: house.photos,
+          scaledSize: new google.maps.Size(50, 50), 
+          title: house.title,  
+          }}
+        />      
+          </div>
       )
+    
     })
-
     return (
-
-
 
 <div>
     	 <GoogleMap
@@ -78,31 +76,7 @@ class Map extends Component{
 		  defaultCenter={this.props.center}>  
 		  {/*markers.isMarkerShown && */  }
       {houses}
-		  </GoogleMap> */
-			
-    <div className="container">
-      <form className="form-inline">
-        <label className="sr-only" htmlFor="address">Address</label>
-        <input type="text" className="form-control input-lg" id="address" placeholder="London"  required />
-         <button type="submit" className="btn btn-default btn-lg">
-         <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </form>
-        <div className="row">
-          <div className="col-sm-12">
-            <p className="bg-info">London, United Kingdom</p>
-            <div className="map"></div>
-           </div>
-        </div>
-
-    </div>  
-
-    
-
-
-
-
-
+		  </GoogleMap> 
 
       </div>
     )
